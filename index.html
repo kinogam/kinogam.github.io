@@ -21,6 +21,7 @@
   document.querySelector('#custom_input').addEventListener('blur', function (event) {
     //event.preventDefault();
     link.setAttribute('href', 'itjuzi://' + this.value);
+   link.innerHTML = 'itjuzi://' + this.value;
   })
  </script>
  </body>
