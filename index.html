@@ -1,12 +1,27 @@
 <html>
  <body>
  <h4>android</h4>
-  <a href="itjuzi://app?data=company/1">itjuzi app</a>
-  <a href="itjuzi://app?type=company&id=1">itjuzi app2</a>
+  <!--<a href="itjuzi://app?data=company/1">itjuzi app</a>-->
+  <!--<a href="itjuzi://app?type=company&id=1">itjuzi app2</a>-->
+ <!---->
+
+ <h4>your path</h4>
+ <input id="custom_input" />
+
+ <h4>link:</h4>
+ <a id="custom_link" href="#" target="_blank">custom link</a>
 
  <h4>ios</h4>
  <a href="v4itjuzi://">tjuzi app</a>
 
  <a href="v4itjuzi://?album/12">tjuzi app2</a>
+
+ <script>
+  var link = document.querySelector('#custom_link');
+  document.querySelector('#custom_input').addEventListener('blur', function (event) {
+    //event.preventDefault();
+    link.setAttribute('href', 'itjuzi://' + this.value);
+  })
+ </script>
  </body>
 </html>
