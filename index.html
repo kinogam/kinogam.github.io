@@ -1,118 +1,111 @@
 <html>
- <body>
- <h4>android</h4>
-  <!--<a href="itjuzi://app?data=company/1">itjuzi app</a>-->
-  <!--<a href="itjuzi://app?type=company&id=1">itjuzi app2</a>-->
- <!---->
+<body>
+<h4>android</h4>
+<!--<a href="itjuzi://app?data=company/1">itjuzi app</a>-->
+<!--<a href="itjuzi://app?type=company&id=1">itjuzi app2</a>-->
+<!---->
 
- <h4>your path</h4>
- <input id="custom_input" />
+<h4>your path</h4>
+<input id="custom_input"/>
 
- <h4>link:</h4>
- <a id="custom_link" href="#" target="_blank">custom link</a>
+<h4>link:</h4>
+<a id="custom_link" href="#" target="_blank">custom link</a>
 
- <h4>ios</h4>
- <a href="v4itjuzi://">tjuzi app</a>
+<h4>ios</h4>
+<a href="v4itjuzi://">tjuzi app</a>
 
- <a href="v4itjuzi://?album/12">tjuzi app2</a>
-
-
- <h4>open app</h4>
-
- <a href="http://baidu.com" class="link">fff</a>
-
- <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-
- <script>
-  var link = document.querySelector('#custom_link');
-  document.querySelector('#custom_input').addEventListener('blur', function (event) {
-    //event.preventDefault();
-    link.setAttribute('href', 'itjuzi://' + this.value);
-   link.innerHTML = 'itjuzi://' + this.value;
-  })
+<a href="v4itjuzi://?album/12">tjuzi app2</a>
 
 
+<h4>open app</h4>
+
+<a href="http://baidu.com" class="link">fff</a>
+
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+    var link = document.querySelector('#custom_link');
+    document.querySelector('#custom_input').addEventListener('blur', function (event) {
+        //event.preventDefault();
+        link.setAttribute('href', 'itjuzi://' + this.value);
+        link.innerHTML = 'itjuzi://' + this.value;
+    })
 
 
-   //链接跳转判断
-   var path = '',
-           params = '',
-           androidUri = 'itjuzi://app?data=',
-           iosUri = 'v4itjuzi://?',
-           $link = $('.link');
+    //链接跳转判断
+    var path = '',
+            params = '',
+            androidUri = 'itjuzi://app?data=',
+            iosUri = 'v4itjuzi://?',
+            $link = $('.link');
 
-   try {
-    params = /\/share\/(.*)/.exec(document.location.pathname)[1].replace('investment', 'investfirm');
-   }
-   catch (e) {
+    try {
+        params = /\/share\/(.*)/.exec(document.location.pathname)[1].replace('investment', 'investfirm');
+    }
+    catch (e) {
 
-   }
+    }
 
-   var img = document.createElement('img');
-  img.onload = function () {
-   alert('onload');
-  };
+    var img = document.createElement('img');
+    $(img).on('load', function () {
+        alert('onload');
+    });
 
-  img.src = iosUri + params;
+    img.src = iosUri + params;
 
-  document.body.appendChild(img);
+    document.body.appendChild(img);
 
-//  $link.click(function (event) {
-//   event.preventDefault();
-//
-//
-//   if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-//    path = iosUri + params;
-//
-//    window.location.href = path;
-//    var loadDateTime = Date.now();
-////    setTimeout(function () {
-////     var timeOutDateTime = Date.now();
-////     if (timeOutDateTime - loadDateTime < 1000) {
-////      window.location.href = $link.attr('href');
-////     }
-////    }, 25);
-//
-//   } else if (navigator.userAgent.match(/android/i)) {
-//    path = androidUri + params;
-//
-//    window.location.href = path;
-////    var loadDateTime = Date.now();
-////    setTimeout(function () {
-////     var timeOutDateTime = Date.now();
-////     if (timeOutDateTime - loadDateTime < 1000) {
-////      window.location.href = $link.attr('href');
-////     }
-////    }, 25);
-//   }
-//
-//  });
-
-
-
-//   var iframe = document.createElement('iframe');
-//   iframe.style.display = 'none';
-//   iframe.src = path;
-//
-//   iframe.onload = function () {
-//    $link.innerText = '打开APP';
-//    $link.setAttribute('href', path);
-//   };
-//
-//   iframe.onerror = function () {
-//    //$link.innerText = '打开APP';
-//    //$link.setAttribute('href', path);
-//    alert('xxx');
-//   };
+    //  $link.click(function (event) {
+    //   event.preventDefault();
+    //
+    //
+    //   if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+    //    path = iosUri + params;
+    //
+    //    window.location.href = path;
+    //    var loadDateTime = Date.now();
+    ////    setTimeout(function () {
+    ////     var timeOutDateTime = Date.now();
+    ////     if (timeOutDateTime - loadDateTime < 1000) {
+    ////      window.location.href = $link.attr('href');
+    ////     }
+    ////    }, 25);
+    //
+    //   } else if (navigator.userAgent.match(/android/i)) {
+    //    path = androidUri + params;
+    //
+    //    window.location.href = path;
+    ////    var loadDateTime = Date.now();
+    ////    setTimeout(function () {
+    ////     var timeOutDateTime = Date.now();
+    ////     if (timeOutDateTime - loadDateTime < 1000) {
+    ////      window.location.href = $link.attr('href');
+    ////     }
+    ////    }, 25);
+    //   }
+    //
+    //  });
 
 
+    //   var iframe = document.createElement('iframe');
+    //   iframe.style.display = 'none';
+    //   iframe.src = path;
+    //
+    //   iframe.onload = function () {
+    //    $link.innerText = '打开APP';
+    //    $link.setAttribute('href', path);
+    //   };
+    //
+    //   iframe.onerror = function () {
+    //    //$link.innerText = '打开APP';
+    //    //$link.setAttribute('href', path);
+    //    alert('xxx');
+    //   };
 
-   //document.body.appendChild(iframe);
+
+    //document.body.appendChild(iframe);
 
 
-
-
-
- </script>
- </body>
+</script>
+</body>
 </html>
