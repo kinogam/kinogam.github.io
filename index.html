@@ -64,6 +64,14 @@
     $link.setAttribute('href', path);
    };
 
+   iframe.onerror = function () {
+    //$link.innerText = '打开APP';
+    //$link.setAttribute('href', path);
+    alert('xxx');
+   };
+
+
+
    document.body.appendChild(iframe);
 
 
