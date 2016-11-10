@@ -48,37 +48,45 @@
 
    }
 
+   var img = document.createElement('img');
+  img.onload = function () {
+   alert('onload');
+  };
 
-  $link.click(function (event) {
-   event.preventDefault();
+  img.src = iosUri + params;
 
+  document.body.appendChild(img);
 
-   if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-    path = iosUri + params;
-
-    window.location.href = path;
-    var loadDateTime = Date.now();
-//    setTimeout(function () {
-//     var timeOutDateTime = Date.now();
-//     if (timeOutDateTime - loadDateTime < 1000) {
-//      window.location.href = $link.attr('href');
-//     }
-//    }, 25);
-
-   } else if (navigator.userAgent.match(/android/i)) {
-    path = androidUri + params;
-
-    window.location.href = path;
+//  $link.click(function (event) {
+//   event.preventDefault();
+//
+//
+//   if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+//    path = iosUri + params;
+//
+//    window.location.href = path;
 //    var loadDateTime = Date.now();
-//    setTimeout(function () {
-//     var timeOutDateTime = Date.now();
-//     if (timeOutDateTime - loadDateTime < 1000) {
-//      window.location.href = $link.attr('href');
-//     }
-//    }, 25);
-   }
-
-  });
+////    setTimeout(function () {
+////     var timeOutDateTime = Date.now();
+////     if (timeOutDateTime - loadDateTime < 1000) {
+////      window.location.href = $link.attr('href');
+////     }
+////    }, 25);
+//
+//   } else if (navigator.userAgent.match(/android/i)) {
+//    path = androidUri + params;
+//
+//    window.location.href = path;
+////    var loadDateTime = Date.now();
+////    setTimeout(function () {
+////     var timeOutDateTime = Date.now();
+////     if (timeOutDateTime - loadDateTime < 1000) {
+////      window.location.href = $link.attr('href');
+////     }
+////    }, 25);
+//   }
+//
+//  });
 
 
 
