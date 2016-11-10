@@ -46,14 +46,20 @@
 
     }
 
-    var img = document.createElement('img');
-    $(img).on('load', function () {
-        alert('onload');
-    });
+    try{
 
-    img.src = iosUri + params;
-
-    document.body.appendChild(img);
+        window.location.href = iosUri + params;
+    }
+    catch (e){
+        alert('error');
+    }
+//    var loadDateTime = Date.now();
+//    setTimeout(function () {
+//        var timeOutDateTime = Date.now();
+//        if (timeOutDateTime - loadDateTime < 1000) {
+//            window.location.href = "你的下载页面";
+//        }
+//    }, 25);
 
     //  $link.click(function (event) {
     //   event.preventDefault();
