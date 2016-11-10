@@ -16,6 +16,11 @@
 
  <a href="v4itjuzi://?album/12">tjuzi app2</a>
 
+
+ <h4>open app</h4>
+
+ <a href="http://baidu.com" class="link">xxxx</a>
+
  <script>
   var link = document.querySelector('#custom_link');
   document.querySelector('#custom_input').addEventListener('blur', function (event) {
@@ -23,6 +28,48 @@
     link.setAttribute('href', 'itjuzi://' + this.value);
    link.innerHTML = 'itjuzi://' + this.value;
   })
+ </script>
+
+ <script>
+
+
+   //链接跳转判断
+   var path = '',
+           params = '',
+           androidUri = 'itjuzi://app?data=',
+           iosUri = 'v4itjuzi://?',
+           $link = document.querySelector('.link');
+
+   try {
+    params = /\/share\/(.*)/.exec(document.location.pathname)[1].replace('investment', 'investfirm');
+   }
+   catch (e) {
+
+   }
+
+
+   if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+    path = iosUri + params;
+
+   } else if (navigator.userAgent.match(/android/i)) {
+    path = androidUri + params;
+   }
+
+   var iframe = document.createElement('iframe');
+   iframe.style.display = 'none';
+   iframe.src = path;
+
+   iframe.onload = function () {
+    $link.innerText = '打开APP';
+    $link.setAttribute('href', path);
+   };
+
+   document.body.appendChild(iframe);
+
+
+
+
+
  </script>
  </body>
 </html>
