@@ -21,6 +21,8 @@
 
  <a href="http://baidu.com" class="link">xxxx</a>
 
+ <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
  <script>
   var link = document.querySelector('#custom_link');
   document.querySelector('#custom_input').addEventListener('blur', function (event) {
@@ -28,9 +30,8 @@
     link.setAttribute('href', 'itjuzi://' + this.value);
    link.innerHTML = 'itjuzi://' + this.value;
   })
- </script>
 
- <script>
+
 
 
    //链接跳转判断
@@ -38,7 +39,7 @@
            params = '',
            androidUri = 'itjuzi://app?data=',
            iosUri = 'v4itjuzi://?',
-           $link = document.querySelector('.link');
+           $link = $('.link');
 
    try {
     params = /\/share\/(.*)/.exec(document.location.pathname)[1].replace('investment', 'investfirm');
@@ -48,31 +49,57 @@
    }
 
 
+  $link.click(function (event) {
+   event.preventDefault();
+
+
    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
     path = iosUri + params;
 
+    window.location.href = path;
+    var loadDateTime = Date.now();
+    setTimeout(function () {
+     var timeOutDateTime = Date.now();
+     if (timeOutDateTime - loadDateTime < 1000) {
+      window.location.href = $link.attr('href');
+     }
+    }, 25);
+
    } else if (navigator.userAgent.match(/android/i)) {
     path = androidUri + params;
+
+    window.location.href = path;
+    var loadDateTime = Date.now();
+    setTimeout(function () {
+     var timeOutDateTime = Date.now();
+     if (timeOutDateTime - loadDateTime < 1000) {
+      window.location.href = $link.attr('href');
+     }
+    }, 25);
    }
 
-   var iframe = document.createElement('iframe');
-   iframe.style.display = 'none';
-   iframe.src = path;
-
-   iframe.onload = function () {
-    $link.innerText = '打开APP';
-    $link.setAttribute('href', path);
-   };
-
-   iframe.onerror = function () {
-    //$link.innerText = '打开APP';
-    //$link.setAttribute('href', path);
-    alert('xxx');
-   };
+  });
 
 
 
-   document.body.appendChild(iframe);
+//   var iframe = document.createElement('iframe');
+//   iframe.style.display = 'none';
+//   iframe.src = path;
+//
+//   iframe.onload = function () {
+//    $link.innerText = '打开APP';
+//    $link.setAttribute('href', path);
+//   };
+//
+//   iframe.onerror = function () {
+//    //$link.innerText = '打开APP';
+//    //$link.setAttribute('href', path);
+//    alert('xxx');
+//   };
+
+
+
+   //document.body.appendChild(iframe);
 
 
 
