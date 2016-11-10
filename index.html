@@ -58,24 +58,24 @@
 
     window.location.href = path;
     var loadDateTime = Date.now();
-    setTimeout(function () {
-     var timeOutDateTime = Date.now();
-     if (timeOutDateTime - loadDateTime < 1000) {
-      window.location.href = $link.attr('href');
-     }
-    }, 25);
+//    setTimeout(function () {
+//     var timeOutDateTime = Date.now();
+//     if (timeOutDateTime - loadDateTime < 1000) {
+//      window.location.href = $link.attr('href');
+//     }
+//    }, 25);
 
    } else if (navigator.userAgent.match(/android/i)) {
     path = androidUri + params;
 
     window.location.href = path;
-    var loadDateTime = Date.now();
-    setTimeout(function () {
-     var timeOutDateTime = Date.now();
-     if (timeOutDateTime - loadDateTime < 1000) {
-      window.location.href = $link.attr('href');
-     }
-    }, 25);
+//    var loadDateTime = Date.now();
+//    setTimeout(function () {
+//     var timeOutDateTime = Date.now();
+//     if (timeOutDateTime - loadDateTime < 1000) {
+//      window.location.href = $link.attr('href');
+//     }
+//    }, 25);
    }
 
   });
